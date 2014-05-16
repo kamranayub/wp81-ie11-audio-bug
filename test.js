@@ -11,10 +11,10 @@
       var args = Array.prototype.slice.call(arguments),
           now = new Date().getTime();
 
-      args.splice(0, 0, "+" + (now - lastlog).toString() + "ms");
+      args.push("+" + (now - lastlog).toString() + "ms");
 
       var el = document.createElement('div');
-      el.innerText = args.join(" ");
+      el.innerHTML = args.join(" ");
       document.getElementById('log').appendChild(el);
       document.getElementById('log').scrollTop = document.getElementById('log').scrollHeight;
       lastlog = now;
